@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/custom.css">
 
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
 
@@ -109,7 +110,6 @@
 
             <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
               
-
               <h1 class="text-white font-weight-light">Horizon Birding Tours Uganda</h1>
               <p class="mb-5">I believe in the power of birds to ignite discovery and inspire action, Join me on a lifelong journey to enjoy, understand, and protect birds and the natural world.</p>
               <p><a href="#" class="btn btn-primary py-3 px-5 text-white">Make reservation</a></p>
@@ -140,7 +140,7 @@
       <div class="container overlap-section">
         <div class="row">
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-            <a href="#" class="unit-1 text-center">
+            <a href="#" class="unit-1 text-center" id="myBtn">
               <img src="images/bwindi.jpg" alt="Image" class="img-fluid">
               <div class="unit-1-text">
                 <h3 class="unit-1-heading">Bwindi Impenetrable National Park</h3>
@@ -148,14 +148,14 @@
             </a>
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-            <a href="#" class="unit-1 text-center">
+            <a href="#" class="unit-1 text-center" id="myBtn2">
               <img src="images/qe.jpg" alt="Image" class="img-fluid">
               <div class="unit-1-text">
                 <h3 class="unit-1-heading">Queen Elizabeth National Park</h3>
               </div>
             </a>
           </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" id="myBtn3">
             <a href="#" class="unit-1 text-center">
               <img src="images/ab.jpg" alt="Image" class="img-fluid">
               <div class="unit-1-text">
@@ -339,7 +339,6 @@
       </div>
     </div>
 
-
     <div class="site-section">
       <div class="container">
         <div class="row justify-content-center mb-5">
@@ -430,6 +429,46 @@
     </footer>
   </div>
 
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Place reservation to <span id="reserve"></span></h3>
+      <form action="">
+        <div class="row form-group">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <label class="text-black" for="fname">First Name</label>
+            <input type="text" id="fname" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label class="text-black" for="lname">Last Name</label>
+            <input type="text" id="lname" class="form-control">
+          </div>
+        </div>
+        <div class="row form-group">  
+          <div class="col-md-12">
+            <label class="text-black" for="email">Date</label> 
+            <input type="text" id="date" class="form-control">
+          </div>
+        </div>
+        <div class="row form-group">  
+          <div class="col-md-12">
+            <label class="text-black" for="email">Email</label> 
+            <input type="email" id="email" class="form-control">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 text-center">
+            <a href="#subscribe" class="btn btn-outline-primary border-2 py-3 px-5">Let Us Know</a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -446,3 +485,44 @@
     
   </body>
 </html>
+
+<script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  var btn2 = document.getElementById("myBtn2");
+  var btn3 = document.getElementById("myBtn3");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+    modal.style.display = "block";
+    document.getElementById('reserve').innerHTML = "Bwindi Impenetrable National Park"
+  }
+
+  btn2.onclick = function() {
+    modal.style.display = "block";
+    document.getElementById('reserve').innerHTML = "Queen Elizabeth National Park"
+  }
+
+  btn3.onclick = function() {
+    modal.style.display = "block";
+    document.getElementById('reserve').innerHTML = "Semuliki National Park"
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
